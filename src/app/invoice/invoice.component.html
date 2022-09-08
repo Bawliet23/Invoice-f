@@ -1,0 +1,171 @@
+
+
+
+<div class="container">
+<div class="invoiceDiv">
+    <form [formGroup]="invoiceForm">
+<div>
+    <div class="headDiv">
+        <div class="logoDiv">
+            <input id="file-input"  type="file" ref="file" accept=".png, .jpg, .jpeg"
+            (change)="handleFileInput($event)">
+                <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                        <div class="drop-zone__thumb" data-lable="myFile.txt"></div> 
+                         <div><img [src]="url" *ngIf="url" /></div> 
+                        <!-- <input type="file" name="myFile" class="drop-zone__input" (click)="selectFile($event)"> -->
+                </div>
+                <!-- <div class="col-sm-12">
+                  <div class="card">
+                    <div class="card-header">Dynamic Forms</div>
+                    <div class="card-body">
+                      <dynamic-form-builder [fields]="getFields()"></dynamic-form-builder>
+                    </div>
+                  </div>
+                </div> -->
+
+             <br>
+            <!-- recipient input -->
+            <mat-form-field>
+                <input matInput placeholder="who is this invoice from" formControlName="name">
+                <mat-error *ngIf="recipient?.errors?.['required']">
+                    recipient name is required
+                </mat-error>
+            </mat-form-field><br>
+            <!-- reciever input -->
+            <mat-form-field>
+            <input matInput placeholder="who is this invoice to" formControlName="billTo">
+            <mat-error *ngIf="reciever?.errors?.['required']">
+                reciever name is required
+            </mat-error>
+            </mat-form-field>
+            <!-- adresse de livraison -->
+            <mat-form-field>
+                <input matInput placeholder="adresse de livraison" formControlName="shipTo">
+            </mat-form-field>
+        </div>
+        <div class="titleDiv">
+            <div ><h1 class="facture">FACTURE</h1></div>
+            <div  class="c1">
+
+            <!-- Date -->
+
+            <mat-form-field class="date">
+              <input matInput [matDatepicker]="myDatePicker1" formControlName="date" placeholder="Date">
+                <mat-datepicker-toggle [for]="myDatePicker1" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #myDatePicker1></mat-datepicker>
+            </mat-form-field><br>
+            <!-- modalite de paiement -->
+            <mat-form-field class="mod_pay">
+                <input matInput formControlName="po" placeholder="Modalites de paiement : " >
+            </mat-form-field><br>
+            <!-- date de paiement -->
+            <mat-form-field class="date_pay">
+                <input matInput [matDatepicker]="myDatePicker2"  formControlName="dueDate" placeholder="A payer avant le: ">
+                <mat-datepicker-toggle [for]="myDatePicker2" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #myDatePicker2></mat-datepicker>
+            </mat-form-field><br>
+            <!-- bon de commande -->
+            <mat-form-field class="bon_commande">
+                <input matInput placeholder="Bon de commande:"  formControlName="paymentTerm">
+            </mat-form-field><br>
+            </div>
+        </div>
+    </div>
+    <div class="midDiv"> <!-- Table that take data and have a button to add a new row if needed -->
+        <table>
+                    <th><div class="obj">object</div></th>
+                    <th><div class="quantite">Quantite</div></th>
+                    <th><div class="prixUnit">Prix Unitaire</div></th>
+                    <th><div class="montant">Montant</div></th>
+
+
+                    <tr *ngFor="let element of this.listData ; let i = index">
+                   
+
+                        <td><mat-form-field appearance="outline">
+                            <!-- <input matInput placeholder="Description du object ou produits..." formControlName="description"> -->
+                            <mat-select (selectionChange)="selectProduct($event.value,element)">
+                                <mat-option *ngFor="let prod of this.prodsL" [value]="prod">
+                                  {{prod.name}}
+                                </mat-option>
+                              </mat-select>
+                        </mat-form-field></td>
+
+                        <td><mat-form-field appearance="outline">
+                            <input matInput placeholder="put the quantity"   (blur)="quant($event,element)" [value]="1">
+                        </mat-form-field></td>
+
+                        <td>
+                            <div class="showPrice">{{(element.product==null) ? 0 :element.product.price}}</div>
+                            <!-- <input [disabled]="true" matInput placeholder="how much" formControlName="tot1" [(ngModel)]=" "> -->
+</td>
+
+                        <td>
+                        <div class="showPrice">{{(element.product==null) ? 0 :element.product.price*element.quantity | currency}}</div>
+                        </td>
+
+
+                    </tr>
+        </table>
+
+        <button mat-raised-button color="primary" (click)="addNewRow()">Add row</button>
+        <button mat-button color="accent" (click)="Reset()">Reset</button>
+
+
+    </div>
+    <div class="lowDiv">
+        <div class="info">
+            <!-- Remarques -->
+            <div class="remarques">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Remarques and information : </mat-label>
+             <textarea matInput placeholder="any relevant information note covered yet" formControlName="note"></textarea>
+
+            </mat-form-field></div>
+            <!-- Terms -->
+            <div class="terms">
+
+            <mat-form-field appearance="outline">
+              <mat-label>Terms and conditions : </mat-label>
+             <textarea matInput placeholder="late fees, payment methods delivery schedule" formControlName="term"></textarea>
+            </mat-form-field></div>
+        </div>
+        <div class="taxes">
+             <div class="showPrice">Sous-Totale : {{subTotal() | currency}}</div>
+            <!-- <table> -->
+
+                   <!-- <tr> <td>
+
+                    </td>
+                    <td> -->
+                    <mat-form-field class="tax" >
+                    <input matInput placeholder="Tax %" formControlName="tax" [(ngModel)]="tx">
+                    </mat-form-field>
+                     <div class="Total">Totale : {{ montant() | currency }}</div>
+                        <mat-form-field class="Mont_pay">
+                            <input matInput placeholder="Montant payee" formControlName="amountPaid" [(ngModel)]="montPayee">
+                        </mat-form-field><br>
+                        <div class="solde_a_paye">solde a payee :  {{ total()| currency }}</div>
+
+
+            <!-- </table> -->
+
+
+        </div>
+    </div>
+</div>
+
+</form>
+
+
+</div>
+<div class="nav_buttons">
+  <button mat-raised-button (click)="download()" color="primary">Download</button>
+  <button mat-raised-button (click)="save()" color="accent">Save</button>
+
+</div>
+</div>
+
+

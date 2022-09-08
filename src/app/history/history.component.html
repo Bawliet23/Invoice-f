@@ -1,0 +1,30 @@
+<h1 class="title">History :</h1>
+<div class="con">
+  <ng-container *ngFor="let invoice of invoices">
+  <div class="container">
+      
+    <p class="name">{{invoice.name}}</p>
+    <p>{{invoice.date | date}}</p>
+    <div class="btn">
+      <span  (click)="download(invoice.id)" style="color: rgb(1, 4, 199) ;float: left;"  class="material-icons">download</span>
+      <span (click)="delete(invoice.id)" style="color: rgb(215, 2, 2) ; float: right;" class="material-icons">delete</span>
+      <mat-icon class="mat-icon-rtl-mirror" svgIcon="delete"></mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+
+  <!-- <mat-list>
+    <div mat-subheader>Old Invoices :</div>
+    <mat-list-item *ngFor="let folder of folders">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <div mat-line>{{folder.name}}</div>
+      <div mat-line> {{folder.updated | date}} </div>
+    </mat-list-item>
+  </mat-list>
+  <div class="btn">
+    <button mat-raised-button color="warn">Download</button>
+    <button mat-raised-button color="accent" routerLink="products">Add A New Product</button>
+    <button mat-raised-button color="accent" routerLink="invoice">Fill a new invoice</button>
+  </div> -->
+</div>

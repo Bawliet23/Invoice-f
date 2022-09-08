@@ -1,0 +1,21 @@
+
+footer {
+    background-color: #152036;
+    text-align: center;
+    border-top: 1px solid #fff;
+}
+
+footer p {
+    margin-bottom: 0px;
+    padding: 25px 0px;
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+footer p a,
+footer p a:hover {
+    color: #f5a425;
+}

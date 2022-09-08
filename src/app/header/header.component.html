@@ -1,0 +1,29 @@
+
+<header class="main-header clearfix" role="header">
+  <div class="logo">
+    <a href="#"><em>Inv</em> Voice</a>
+  </div>
+  <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+  <nav id="menu" class="main-nav" role="navigation">
+    <ul class="main-menu">
+      <li><a  routerLink="">Home</a></li>
+      <li class="has-submenu"><a >About Us</a>
+        <ul class="sub-menu">
+          <li><a >Who we are?</a></li>
+          <li><a >What we do?</a></li>
+          <li><a >How it works?</a></li>
+          <li><a  rel="sponsored" class="external">External URL</a></li>
+        </ul>
+      </li>
+      <li *ngIf="!this.authService.user">  <a mat-button routerLink="sign-up" color="accent">Sign up</a></li>
+      <li *ngIf="!this.authService.user">  <a mat-button routerLink="login" color="accent">Sign in</a></li>
+      <!-- <li><a href="#section5">Video</a></li> -->
+      <li *ngIf="this.authService.user"><a mat-button routerLink="invoice">Invoice</a></li>
+      <li *ngIf="this.authService.user"> <a mat-button routerLink="user" color="accent"><span class="material-icons">person</span>{{this.authService.user.name}}</a></li>
+      <li *ngIf="this.authService.user"> <a mat-button (click)="logout()" color="accent">LOGOUT</a></li>
+   
+    </ul>
+  </nav>
+</header>
+
+

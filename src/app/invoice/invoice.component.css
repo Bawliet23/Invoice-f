@@ -1,0 +1,245 @@
+
+
+
+ .container{
+    display: flex;
+    height: auto;
+    width: auto;
+    max-height: 950px;
+    max-width: 900px;
+    border:1px solid green;
+    border-radius: 15px;
+    padding-right: 25px;
+    margin: 25px;
+ }
+
+
+ /* .drop-zone {
+   max-width: 150px;
+   height: 150px;
+   padding: 15px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   font-family: 'Quicksand', sans-serif;
+   font-weight: 500;
+   font-size: 20px;
+   cursor: pointer;
+   color: #cccccc;
+   border: 2px dashed #009578;
+   border-radius: 10px;
+ }
+
+
+ .drop-zone--over {
+   border-style: hidden;
+ }
+
+  .drop-zone__input {
+   display: none;
+  }
+
+  .drop-zone__thumb {
+   width: 100%;
+   height: 100%;
+   border-radius: 10px;
+   overflow: hidden;
+   background-color: #cccccc;
+   background-size: cover;
+   position: relative;
+  }
+
+  .drop-zone__thumb::after {
+   content: attr(data-lable);
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   padding: 5px 0;
+   color: #ffffff;
+   background: rgba(0, 0, 0, 0.75);
+   font-size: 14px;
+   text-align: center;
+  } */
+
+
+
+
+
+
+ table {
+    width: 100%;
+    height:auto;
+    border-radius: 10px;
+
+ }
+
+ th {
+   height: 10px;
+   background-color: darkslategray;
+   text-align: center;
+   align-items: center;
+
+   color: white;
+   padding-bottom: 0px;
+   margin-bottom: 0px;
+ }
+
+ td, tr{
+   height: 30px;
+   padding-top: 0px;
+   margin-top: 0px;
+
+ }
+
+
+
+ .the1 {
+    width: 100%;
+    text-align: center;
+ }
+
+ .invoiceDiv {
+    width: 950px;
+    height: 950px;
+ }
+
+ .facture{
+   padding: 0;
+   margin: 0;
+   float: right;
+ }
+
+
+
+ .titleDiv {
+   margin-left: auto;
+   margin-right: 0;
+ }
+
+
+.headDiv , .midDiv, .lowDiv{
+   width: 850px;
+   height: 350px;
+   /* background-color: grey; */
+   padding: 10px;
+   margin: 10px;
+}
+
+.midDiv {
+   height: auto;
+}
+
+.headDiv, .lowDiv {
+   display: flex;
+   flex: 1;
+}
+
+.logoDiv, .titleDiv{
+   width: 400px;
+   height: 300px;
+   /* background-color: white; */
+
+   flex: 1;
+  /* border: 2px solid blueviolet; */
+  margin: 10px;
+}
+
+.logoDiv {
+  align-items: right;
+}
+
+.info, .taxes {
+   width: 400px;
+   height: 300px;
+   /* background-color: white; */
+
+   flex: 1;
+  /* border: 2px solid blueviolet; */
+  margin: 10px;
+}
+
+.remarques {
+   float: left;
+   clear: left;
+}
+
+.terms {
+   float: left;
+   clear: left;
+}
+
+.Total, .solde_a_paye, .tax, .redux, .livraison, .Mont_pay , .showPrice {
+   width: 190px;
+   float: right;
+   text-align: right;
+   clear: both;
+}
+
+
+.date, .mod_pay, .date_pay, .bon_commande, .id {
+   width: 190px;
+   float: right;
+   text-align: right;
+   clear: both;
+}
+
+
+.nav_buttons {
+  margin-top: 5rem;
+  margin-left: 2rem;
+  display: flex;
+  height: 35px;
+
+}
+
+.nav_buttons button{
+  margin-left: 1rem;
+  margin-right: 1 rem;
+}
+
+/*********************************/
+select {
+   -webkit-appearance:none;
+   -moz-appearance:none;
+   -ms-appearance:none;
+   appearance:none;
+   outline:0;
+   box-shadow:none;
+   border:0!important;
+   background: #ff004d;
+   background-image: none;
+   flex: 1;
+   padding: 0 .5em;
+   color:#fff;
+   cursor:pointer;
+   font-size: 1em;
+   font-family: 'Open Sans', sans-serif;
+}
+select::-ms-expand {
+   display: none;
+}
+.select {
+   position: relative;
+   display: flex;
+   width: 100%;
+   height: 3em;
+   line-height: 3;
+   overflow: hidden;
+   border-radius: .25em;
+}
+.select::after {
+   content: '\25BC';
+   position: absolute;
+   top: 0;
+   right: 0;
+   padding: 0 1em;
+   background: #ac1240;
+   cursor:pointer;
+   pointer-events:none;
+   transition:.25s all ease;
+}
+.select:hover::after {
+   color: #690d0d;
+}

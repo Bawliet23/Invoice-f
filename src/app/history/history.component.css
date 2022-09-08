@@ -1,0 +1,56 @@
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+}
+.con{
+  /* margin: 1rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content:start;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  margin-left: 7rem;
+  margin-right: 7rem;
+  margin-bottom: 7rem;
+}
+.container  {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 150px;
+  background: #f2f2f2;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+  box-shadow: 0 0 15px 8px #d0d0d0;
+  padding-top: 15px;
+  text-align: center;
+  align-items: center;
+  justify-content:space-between;
+  
+}
+.name{
+  font: 1.2em sans-serif;
+  font-weight: bold;
+  word-wrap: break-word;
+}
+
+.btn{
+  width: 100%;
+  position: relative;
+  padding: 10px;
+  bottom: 0;
+}
+.title{
+  margin-left: 20px;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.mat-list{
+  margin-bottom: 3rem;
+}
+ button {
+   margin-left: 2rem;
+ }

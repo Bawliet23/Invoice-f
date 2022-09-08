@@ -1,0 +1,73 @@
+// @import '~@angular/material/theming';
+
+// @include mat-core();
+
+
+// $mat-blue: (
+//     50:#51D8FF,
+//     100:#46C7FF,
+//     200:#3DB5FF,
+//     300:#239BFE,
+//     400:#1672F9,
+//     500:#044EE3,
+//     A100:#D4FAFA,
+//     A200:#C3EEFA,
+//     A400:#AFD5F0,
+//     A700:#9DCAEB,
+//     contrast:(
+//         50:$dark-primary-text,
+//         100:$dark-primary-text,
+//         200:$dark-primary-text,
+//         300:$dark-primary-text,
+//         400:$dark-primary-text,
+//         500:$light-primary-text,
+//         // 600:$light-primary-text,
+//         // 700:$light-primary-text,
+//         // 800:$light-primary-text,
+//         // 900:$light-primary-text,
+//         A100:$dark-primary-text,
+//         A200:$dark-primary-text,
+//         A400:$dark-primary-text,
+//         A700:$dark-primary-text,
+//     )
+// );
+
+// $my-palette: mat.$blue-palette;
+
+//  $my-theme-primary: mat-palette($mat-blue);
+// // $my-theme-accent: mat-palette()
+//  $my-theme-warn: mat-palette($mat-red)
+
+
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+$my-primary: mat.define-palette(mat.$grey-palette,900);
+
+$my-accent: mat.define-palette(mat.$blue-palette, A200);
+
+$my-warn: mat.define-palette(mat.$red-palette); // the warn is the color for the warning in the site.
+
+$my-theme: mat.define-light-theme((
+    color: (
+        primary: $my-primary,
+        accent: $my-accent,
+        warn:$my-warn,
+    )
+));
+// "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",pink-bluegrey.css
+// "src/my-theme.scss",
+// main theme across the site
+// @include mat.core-theme($my-theme);
+
+// @include mat.button-theme($my-theme);
+
+// or i can just use my file in every detail in the project by:
+@include mat.all-component-themes($my-theme);
+
+
+
+

@@ -1,9 +1,9 @@
-.mat-list-icon {
+/* .mat-list-icon {
   color: rgba(0, 0, 0, 0.54);
-}
-.con{
+} */
+/* .con{ */
   /* margin: 1rem; */
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content:start;
   flex-wrap: wrap;
@@ -53,4 +53,21 @@
 }
  button {
    margin-left: 2rem;
- }
+ } */
+
+ table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.container_1 {
+  margin: 7rem;
+}

@@ -12,6 +12,7 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { ProductService } from '../services/product.service';
 import { AuthService } from '../services/auth.service';
 import { Invoice, Product, ProductInvoice } from '../types';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -66,6 +67,7 @@ prodsL:any;
         this.invoiceService.download(data.id).then(()=>console.log("success")).catch(err=>console.log(err))
 
        })
+       this.router.navigate(['/user'])
         }
 
 // anytime the user clicks on add new row a new row should apear under the old one.
@@ -115,13 +117,14 @@ quant($event,element:ProductInvoice){
 
   invoiceForm:  FormGroup;
 
-  constructor(private fb:FormBuilder,private invoiceService :InvoiceService,private productService:ProductService,private auth :AuthService) {
+  constructor(private fb:FormBuilder,private router :Router,private invoiceService :InvoiceService,private productService:ProductService,private auth :AuthService) {
     this.invoiceForm = this.fb.group ({
       name: ['',Validators.required],
       billTo: ['',Validators.required],
       shipTo: ['',Validators.required],
       paymentTerm: ['',Validators.required],
       date:[''],
+      po:[''],
       dueDate:[''],
       note:[''],
       term:[''],
@@ -144,6 +147,7 @@ save(){
  invoice.orderItems=this.listData;
     if(this.fileToUpload!=null)
     this.invoiceService.addInvoice(invoice,this.fileToUpload)
+    this.router.navigate(['/user'])
 }
 
   // invoiceForm = this.FormBuilder.group({

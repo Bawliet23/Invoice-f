@@ -29,6 +29,8 @@ export class ProductsComponent implements OnInit {
     this.productService.getProducts(this.auth.user.id,0).then((data:any)=>{
       this.page=data;
       this.dataSource=data.content;
+      console.log("push me to the edge All my friend are dead ahhhhhhhhhhh")
+      console.log(this.page)
     })
   }
   ngOnInit(): void {

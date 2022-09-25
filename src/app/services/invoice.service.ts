@@ -40,7 +40,13 @@ export class InvoiceService {
       })
     })
   }
-
+  getInvoicesByUserP(userId:number,page:number){
+    return new Promise(async (resolve,reject) => {
+      this.api.get("user/"+userId+"/invoicesP?page="+page).then(data=>{
+        resolve(data)
+      })
+    })
+  }
   delete(id:number){
     return new Promise(async (resolve,reject) => {
       this.api.delete("invoice/"+id).then(()=>console.log("deleted"))

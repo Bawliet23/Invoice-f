@@ -3,26 +3,20 @@
 
 <div class="container">
 <div class="invoiceDiv">
+    <h1 class="facture">FACTURE</h1>
     <form [formGroup]="invoiceForm">
 <div>
     <div class="headDiv">
+        
         <div class="logoDiv">
             <input id="file-input"  type="file" ref="file" accept=".png, .jpg, .jpeg"
             (change)="handleFileInput($event)">
                 <div class="drop-zone">
-                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
                         <div class="drop-zone__thumb" data-lable="myFile.txt"></div> 
                          <div><img [src]="url" *ngIf="url" /></div> 
                         <!-- <input type="file" name="myFile" class="drop-zone__input" (click)="selectFile($event)"> -->
                 </div>
-                <!-- <div class="col-sm-12">
-                  <div class="card">
-                    <div class="card-header">Dynamic Forms</div>
-                    <div class="card-body">
-                      <dynamic-form-builder [fields]="getFields()"></dynamic-form-builder>
-                    </div>
-                  </div>
-                </div> -->
+
 
              <br>
             <!-- recipient input -->
@@ -40,12 +34,13 @@
             </mat-error>
             </mat-form-field>
             <!-- adresse de livraison -->
+            <br>
             <mat-form-field>
                 <input matInput placeholder="adresse de livraison" formControlName="shipTo">
             </mat-form-field>
         </div>
         <div class="titleDiv">
-            <div ><h1 class="facture">FACTURE</h1></div>
+          
             <div  class="c1">
 
             <!-- Date -->
@@ -109,8 +104,8 @@
                     </tr>
         </table>
 
-        <button mat-raised-button color="primary" (click)="addNewRow()">Add row</button>
-        <button mat-button color="accent" (click)="Reset()">Reset</button>
+        <button mat-button color="accent" (click)="addNewRow()">Add row</button>
+        <button mat-button style="float: right;" color="warn" (click)="Reset()">Reset</button>
 
 
     </div>
@@ -134,23 +129,16 @@
         </div>
         <div class="taxes">
              <div class="showPrice">Sous-Totale : {{subTotal() | currency}}</div>
-            <!-- <table> -->
-
-                   <!-- <tr> <td>
-
-                    </td>
-                    <td> -->
+  
                     <mat-form-field class="tax" >
                     <input matInput placeholder="Tax %" formControlName="tax" [(ngModel)]="tx">
                     </mat-form-field>
+                    
                      <div class="Total">Totale : {{ montant() | currency }}</div>
                         <mat-form-field class="Mont_pay">
                             <input matInput placeholder="Montant payee" formControlName="amountPaid" [(ngModel)]="montPayee">
                         </mat-form-field><br>
                         <div class="solde_a_paye">solde a payee :  {{ total()| currency }}</div>
-
-
-            <!-- </table> -->
 
 
         </div>
@@ -162,7 +150,7 @@
 
 </div>
 <div class="nav_buttons">
-  <button mat-raised-button (click)="download()" color="primary">Download</button>
+  <button mat-raised-button (click)="download()" color="accent">Download</button>
   <button mat-raised-button (click)="save()" color="accent">Save</button>
 
 </div>
